@@ -41,6 +41,9 @@
 				</div>
 			</div>
 		</form>
+		
+		
+		<a href="show_values/12/ram">click to send data</a>
 	</div>
 </body>
 </html>

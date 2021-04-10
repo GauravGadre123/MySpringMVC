@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +18,7 @@ import com.techno.model.User;
 public class MyController {
 
 	/*--------------------- 1st session----------------------- */
+	
 	@RequestMapping(value = "/home")
 	public String home(Model model) {
 		model.addAttribute("data", "parsing data from home");
@@ -53,6 +56,7 @@ public class MyController {
 	
 
 	/*--------------------- 2nd session----------------------- */
+	
 	@RequestMapping("/input")
 	public String inputForm() {
 
@@ -91,9 +95,43 @@ public class MyController {
 	@RequestMapping("/success")
 	public String successForm() {
 
+        int[] a = new int[4];
+		System.out.println(a[5]);
+		
 		return "success";
 	}
 
 
 	/*--------------------- 2nd session End----------------------- */
+	
+
+	/*--------------------- 3rd session ----------------------- */
+	
+
+	// for getting values from url
+
+	@RequestMapping(value = "/show_values/{id}/{name}")
+	public String showValues(@PathVariable("id") int uid, @PathVariable("name") String uname) {
+		System.out.println(uid);
+
+		System.out.println(uname);
+		return "";
+
+	}
+	
+	// exception handling
+
+	/*
+	@ExceptionHandler({ IllegalStateException.class, ArrayIndexOutOfBoundsException.class })
+	public String handlingException() {
+		return "exception_handle";
+	}
+   */
+
+	
+
+	/*--------------------- 3rd session End ----------------------- */
+	
+	
+	
 }
