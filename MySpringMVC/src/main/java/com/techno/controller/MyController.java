@@ -15,6 +15,7 @@ import com.techno.model.User;
 @Controller
 public class MyController {
 
+	/*--------------------- 1st session----------------------- */
 	@RequestMapping(value = "/home")
 	public String home(Model model) {
 		model.addAttribute("data", "parsing data from home");
@@ -45,7 +46,13 @@ public class MyController {
 		System.out.println(req.getParameter("id"));
 		return "";
 	}
+	
 
+	/*--------------------- 1st session End----------------------- */
+
+	
+
+	/*--------------------- 2nd session----------------------- */
 	@RequestMapping("/input")
 	public String inputForm() {
 
@@ -87,4 +94,6 @@ public class MyController {
 		return "success";
 	}
 
+
+	/*--------------------- 2nd session End----------------------- */
 }
