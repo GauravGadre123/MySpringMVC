@@ -9,8 +9,9 @@
 <body>
 <h2>home page called</h2>
 
-<h3>${data}</h3>
+<h3>${user.email}</h3>
 
 <h3>${user.password}</h3>
+<h3>${name}</h3>
 </body>
 </html>
