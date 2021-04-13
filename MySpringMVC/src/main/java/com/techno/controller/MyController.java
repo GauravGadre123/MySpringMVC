@@ -2,6 +2,7 @@ package com.techno.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,10 +14,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.techno.model.User;
+import com.techno.service.UserService;
 
 @Controller
 public class MyController {
 
+
+	@Autowired
+	private UserService userService;
+	
 	/*--------------------- 1st session----------------------- */
 	
 	@RequestMapping(value = "/home")
@@ -80,7 +86,7 @@ public class MyController {
 		model.addAttribute("user", user);
 		return "redirect:/success";
 	}
-*/	
+	
 	@RequestMapping(value = "/show_data", method = RequestMethod.POST)
 	public RedirectView showData(@ModelAttribute User user, Model model) {
 		
@@ -91,13 +97,16 @@ public class MyController {
 		return rv;
 
 	}
-	
+	*/
 	@RequestMapping("/success")
 	public String successForm() {
-
+    
+		/*
+		 
         int[] a = new int[4];
 		System.out.println(a[5]);
 		
+		*/
 		return "success";
 	}
 
@@ -132,6 +141,23 @@ public class MyController {
 
 	/*--------------------- 3rd session End ----------------------- */
 	
+	/*--------------------- 4th session  ----------------------- */
+	
+	
+	@RequestMapping(value = "/show_data", method = RequestMethod.POST)
+	public RedirectView showData(@ModelAttribute User user, Model model) {
+		
+		userService.saveUser(user);
+		
+		model.addAttribute("user", user);
+
+		RedirectView rv = new RedirectView();
+		rv.setUrl("success");
+		return rv;
+
+	}
+	
+	/*--------------------- 4th session  ----------------------- */
 	
 	
 }

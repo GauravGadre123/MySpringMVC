@@ -1,7 +1,6 @@
 <%@page import="java.text.Normalizer.Form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,8 +23,6 @@
 
 			<div class="alert alert-danger alert-dismissible">
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			
-				<form:errors path="user1.*"></form:errors>
 			
 				
 			</div>
